@@ -28,7 +28,7 @@ export const useAuthStore = defineStore('auth', () => {
 
    async function login(datos:Object){
 
-    const res = await axios.post('http://127.0.0.1:8000/login',{
+    const res = await axios.post('http://54.162.183.155:8000/login',{
       email: datos.value.email,
       password: datos.value.password
     }).then(res=>{
@@ -65,7 +65,12 @@ export const useAuthStore = defineStore('auth', () => {
           });
       }
     }
-  
+    function singup(){
+      isAuthenticated.value=false
+      router.push({
+        name:'login'
+      })  
+    }
 
-  return { activeMenu, showMenu, activeModules, showModules, login, isAuthenticated,access_token, userInfo}
+  return { activeMenu, showMenu, activeModules, showModules, login, isAuthenticated,access_token, userInfo, singup}
 })

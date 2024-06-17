@@ -41,9 +41,11 @@
                         </ul>
                         
                     </div>
-                    <div class="mt-auto">
+                    <div class="mt-auto" @click="singup">
                         <hr class="mb-3 mx-3 border-t-1 border-none border-surface-200 dark:border-surface-700" />
-                        <a v-ripple class="m-3 flex items-center cursor-pointer p-3 gap-2 rounded-md text-surface-700 dark:text-surface-0/80 hover:bg-surface-100 dark:hover:bg-surface-700 duration-200 transition-colors">
+                        <a 
+                        
+                        v-ripple class="m-3 flex items-center cursor-pointer p-3 gap-2 rounded-md text-surface-700 dark:text-surface-0/80 hover:bg-surface-100 dark:hover:bg-surface-700 duration-200 transition-colors">
                             <span class="font-bold">Cerrar Sesion</span>
                         </a>
                     </div>
@@ -62,7 +64,7 @@ import { useAuthStore } from '@/stores/auth';
 import {useMenuStore} from '@/stores/useMenu'
 import { storeToRefs } from 'pinia';
 const {activeMenu} = storeToRefs(useAuthStore())
-const {showMenu} = useAuthStore();
+const {showMenu, singup} = useAuthStore();
 const {menuSelected} = storeToRefs(useMenuStore())
 
 </script>

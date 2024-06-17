@@ -93,13 +93,13 @@ let config = {
 
   let dataCustomer=ref([])
   const getData =async()=>{
-    const res =await axios.get('http://127.0.0.1:8000/customers',config)
+    const res =await axios.get('http://54.162.183.155:8000/customers',config)
     dataCustomer.value=res.data
   }
   getData()
 
 async function delCustomer() {
-  const res =await axios.delete(`http://127.0.0.1:8000/customer/${selectCustomer.value.customer_id}`,config)
+  const res =await axios.delete(`http://54.162.183.155:8000/customer/${selectCustomer.value.customer_id}`,config)
   selectCustomer.value=null
   getData()
 }
@@ -115,7 +115,7 @@ async function saveEdit(){
     address: selectCustomer.value.address,
     number_phone: selectCustomer.value.number_phone
   }
-  const res =await axios.put(`http://127.0.0.1:8000/customer/${selectCustomer.value.customer_id}`,data,config)
+  const res =await axios.put(`http://54.162.183.155:8000/customer/${selectCustomer.value.customer_id}`,data,config)
   selectCustomer.value=null
   showEdit.value=false
   getData()
@@ -132,7 +132,7 @@ async function saveData(){
     address: form.value.address,
     number_phone: form.value.number_phone
   }
-  const res =await axios.post(`http://127.0.0.1:8000/customer`,data,config)
+  const res =await axios.post(`http://54.162.183.155:8000/customer`,data,config)
   selectCustomer.value=null
   showNew.value=false
   getData()

@@ -131,7 +131,7 @@ let config = {
 let dataUser=ref()
 let selectUser=ref()
 const getData =async()=>{
-  const res =await axios.get('http://127.0.0.1:8000/users',config)
+  const res =await axios.get('http://54.162.183.155:8000/users',config)
 dataUser.value=[]
   res.data.map((user:any)=>{
       if(user.rol_id==3){
@@ -146,7 +146,7 @@ dataUser.value=[]
 getData()
 
 const getDataCustomers=async()=>{
-  const res =await axios.get('http://127.0.0.1:8000/customers',config)
+  const res =await axios.get('http://54.162.183.155:8000/customers',config)
   
   customers.value=res.data.map((customer:any)=>{
     return{
@@ -175,7 +175,7 @@ async function saveVisit() {
     userasigned:form.value.userasigned,
     fecha:      form.value.fecha
     }
-    const res =await axios.post('http://127.0.0.1:8000/visit',data ,config)
+    const res =await axios.post('http://54.162.183.155:8000/visit',data ,config)
     selectUser.value=null
     customerSelect.value=null
     
@@ -202,7 +202,7 @@ async function getVistis(){
         params:params
     }
 
-    const res =await axios.get('http://127.0.0.1:8000/visits',conf)
+    const res =await axios.get('http://54.162.183.155:8000/visits',conf)
     visitas.value= res.data
 }
 
@@ -218,16 +218,16 @@ function toUbication(latitud:string, longitud:string) {
 
 async function finVisit(customer_id: Number, visit_id:Number ){
     const params={
-        customer_id,
-        visit_id
+        customer_id:customer_id,
+        visit_id:visit_id
     }
     let conf={
         ...config,
         params:params
     }
+    const res =await axios.get('http://54.162.183.155:8000/visitfinish',conf)
 
-    const res =await axios.get('http://127.0.0.1:8000/visitfinish',conf)
-    getData()
+    getVistis()
 }
 
 </script>

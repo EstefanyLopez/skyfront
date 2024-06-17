@@ -110,13 +110,13 @@ let config = {
 
 let dataUser=ref([])
 const getData =async()=>{
-  const res =await axios.get('http://127.0.0.1:8000/users',config)
+  const res =await axios.get('http://54.162.183.155:8000/users',config)
   dataUser.value=res.data
 }
 getData()
 
 async function delUser() {
-const res =await axios.delete(`http://127.0.0.1:8000/user/${selectUser.value.user_id}`,config)
+const res =await axios.delete(`http://54.162.183.155:8000/user/${selectUser.value.user_id}`,config)
 selectUser.value=null
 getData()
 }
@@ -132,7 +132,7 @@ const data ={
   address: selectUser.value.address,
   number_phone: selectUser.value.number_phone
 }
-const res =await axios.put(`http://127.0.0.1:8000/customer/${selectUser.value.user_id}`,data,config)
+const res =await axios.put(`http://54.162.183.155:8000/customer/${selectUser.value.user_id}`,data,config)
 selectUser.value=null
 showEdit.value=false
 getData()
@@ -151,7 +151,7 @@ const data ={
   password: form.value.password,
   rol_id: selectedRol.value.code
 }
-const res =await axios.post(`http://127.0.0.1:8000/user`,data,config)
+const res =await axios.post(`http://54.162.183.155:8000/user`,data,config)
 selectUser.value=null
 showNew.value=false
 form.value.name=""
