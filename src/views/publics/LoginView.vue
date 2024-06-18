@@ -59,6 +59,7 @@ import { ref } from 'vue';
 import MovieLogin from '../../components/moviesComponents/MovieLogin.vue'
 import Logo from '../../assets/imgs/logolessbg.png'
 import Swal from 'sweetalert2';
+import password from '@/presets/lara/password';
 
 
 const {login} = useAuthStore()
@@ -70,7 +71,11 @@ const credentials = ref({
 async function sendLogin(){
   if (credentials.value.email.trim().length>2 && credentials.value.password.trim().length>2) {
 
-    login(credentials)
+    const cred ={
+      email : credentials.value.email,
+      password: credentials.value.password
+    }
+    login(cred)
 
   }else{
     const Toast = Swal.mixin({

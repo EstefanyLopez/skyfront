@@ -24,13 +24,19 @@ export const useAuthStore = defineStore('auth', () => {
   function showModules(){
     activeModules.value = !activeModules.value
   }
-
-
-   async function login(datos:Object){
+  interface Datos {
+    
+      email: string;
+      password: string;
+    
+  }
+  
+  
+   async function login(datos: Datos){
 
     const res = await axios.post('http://54.162.183.155:8000/login',{
-      email: datos.value.email,
-      password: datos.value.password
+      email: datos.email,
+      password: datos.password
     }).then(res=>{
       return res
     }).catch(err=>err

@@ -103,7 +103,7 @@ const customerSelect=ref()
 const customers=ref([])
 
 const visitas = ref();
-const getSeverity = (row) => {
+const getSeverity = (row:any) => {
     switch (row.status) {
         case '1':
             return 'success';

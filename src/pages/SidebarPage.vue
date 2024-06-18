@@ -23,9 +23,9 @@
                             <li>
                                
                                 <ul class="list-none p-0 m-0 overflow-hidden">
-                                    <li v-for="(menu, key) in menuSelected.menus" :key="key"
+                                    <li v-for="(menu,index) in (menuSelected.menus || [])" :key="index" :value="menu"
                                     @click="showMenu"
-                                    
+
                                     >
                                     <router-link :to="menu.path">
 

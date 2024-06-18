@@ -10,7 +10,7 @@ export const useMenuStore = defineStore('useMenuStore',()=>{
 
         function selectModule(option:number){
             moduleSelectedId.value=option
-            menuSelected.value = dataMenu.value.find(mod=>mod.module_id==option)
+            menuSelected.value = dataMenu.value.find(mod=>mod.module_id==option) || {}
         }
 
         return{ menuSelected, selectModule}
